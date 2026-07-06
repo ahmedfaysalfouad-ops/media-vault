@@ -986,6 +986,8 @@ let editingId = null;
 function openModal(isEdit) {
   document.getElementById('modal-title').textContent = isEdit ? 'Edit Asset' : 'Add New Asset';
   document.getElementById('msave').textContent = isEdit ? 'Update Asset' : 'Save Asset';
+  // Populate the folder autocomplete for every open (Add or Edit)
+  if (typeof refreshFolderSuggestions === 'function') refreshFolderSuggestions();
   document.getElementById('mbg').classList.add('open');
 }
 function closeModal() {
